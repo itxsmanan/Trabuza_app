@@ -1,19 +1,8 @@
-/*!
-  =========================================================
-  * Muse Ant Design Dashboard - v1.0.0
-  =========================================================
-  * Product Page: https://www.creative-tim.com/product/muse-ant-design-dashboard
-  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-  * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-dashboard/blob/main/LICENSE.md)
-  * Coded by Creative Tim
-  =========================================================
-  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // import { useState } from "react";
-import { Menu, Button } from "antd";
+import { Menu } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function Sidenav({ color }) {
   const { pathname } = useLocation();
@@ -25,7 +14,7 @@ function Sidenav({ color }) {
       height="20"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
-      key={0}
+      key={3}
     >
       <path
         d="M3 4C3 3.44772 3.44772 3 4 3H16C16.5523 3 17 3.44772 17 4V6C17 6.55228 16.5523 7 16 7H4C3.44772 7 3 6.55228 3 6V4Z"
@@ -49,7 +38,7 @@ function Sidenav({ color }) {
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      key={0}
+      key={2}
     >
       <path
         d="M9 2C8.44772 2 8 2.44772 8 3C8 3.55228 8.44772 4 9 4H11C11.5523 4 12 3.55228 12 3C12 2.44772 11.5523 2 11 2H9Z"
@@ -64,46 +53,6 @@ function Sidenav({ color }) {
     </svg>,
   ];
 
-  const billing = [
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      key={0}
-    >
-      <path
-        d="M4 4C2.89543 4 2 4.89543 2 6V7H18V6C18 4.89543 17.1046 4 16 4H4Z"
-        fill={color}
-      ></path>
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M18 9H2V14C2 15.1046 2.89543 16 4 16H16C17.1046 16 18 15.1046 18 14V9ZM4 13C4 12.4477 4.44772 12 5 12H6C6.55228 12 7 12.4477 7 13C7 13.5523 6.55228 14 6 14H5C4.44772 14 4 13.5523 4 13ZM9 12C8.44772 12 8 12.4477 8 13C8 13.5523 8.44772 14 9 14H10C10.5523 14 11 13.5523 11 13C11 12.4477 10.5523 12 10 12H9Z"
-        fill={color}
-      ></path>
-    </svg>,
-  ];
-
-  const rtl = [
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      key={0}
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M3 6C3 4.34315 4.34315 3 6 3H16C16.3788 3 16.725 3.214 16.8944 3.55279C17.0638 3.89157 17.0273 4.29698 16.8 4.6L14.25 8L16.8 11.4C17.0273 11.703 17.0638 12.1084 16.8944 12.4472C16.725 12.786 16.3788 13 16 13H6C5.44772 13 5 13.4477 5 14V17C5 17.5523 4.55228 18 4 18C3.44772 18 3 17.5523 3 17V6Z"
-        fill={color}
-      ></path>
-    </svg>,
-  ];
-
   const profile = [
     <svg
       width="20"
@@ -111,17 +60,26 @@ function Sidenav({ color }) {
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      key={0}
+      key={1}
     >
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10ZM12 7C12 8.10457 11.1046 9 10 9C8.89543 9 8 8.10457 8 7C8 5.89543 8.89543 5 10 5C11.1046 5 12 5.89543 12 7ZM9.99993 11C7.98239 11 6.24394 12.195 5.45374 13.9157C6.55403 15.192 8.18265 16 9.99998 16C11.8173 16 13.4459 15.1921 14.5462 13.9158C13.756 12.195 12.0175 11 9.99993 11Z"
-        fill={color}
+        d="M9 6C9 7.65685 7.65685 9 6 9C4.34315 9 3 7.65685 3 6C3 4.34315 4.34315 3 6 3C7.65685 3 9 4.34315 9 6Z"
+        fill="#fff"
+      ></path>
+      <path
+        d="M17 6C17 7.65685 15.6569 9 14 9C12.3431 9 11 7.65685 11 6C11 4.34315 12.3431 3 14 3C15.6569 3 17 4.34315 17 6Z"
+        fill="#fff"
+      ></path>
+      <path
+        d="M12.9291 17C12.9758 16.6734 13 16.3395 13 16C13 14.3648 12.4393 12.8606 11.4998 11.6691C12.2352 11.2435 13.0892 11 14 11C16.7614 11 19 13.2386 19 16V17H12.9291Z"
+        fill="#fff"
+      ></path>
+      <path
+        d="M6 11C8.76142 11 11 13.2386 11 16V17H1V16C1 13.2386 3.23858 11 6 11Z"
+        fill="#fff"
       ></path>
     </svg>,
   ];
-
   const signin = [
     <svg
       width="20"
@@ -139,32 +97,34 @@ function Sidenav({ color }) {
       ></path>
     </svg>,
   ];
-
-  const signup = [
+  const category = [
     <svg
+      key={4}
+      width="25"
+      height="25"
+      viewBox="0 0 20 20"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      key={0}
     >
       <path
-        d="M0,2A2,2,0,0,1,2,0H8a2,2,0,0,1,2,2V8a2,2,0,0,1-2,2H2A2,2,0,0,1,0,8Z"
-        transform="translate(4 4)"
-        fill={color}
-      />
-      <path
-        d="M2,0A2,2,0,0,0,0,2V8a2,2,0,0,0,2,2V4A2,2,0,0,1,4,2h6A2,2,0,0,0,8,0Z"
+        d="M6 2C5.44772 2 5 2.44772 5 3V4H4C2.89543 4 2 4.89543 2 6V16C2 17.1046 2.89543 18 4 18H16C17.1046 18 18 17.1046 18 16V6C18 4.89543 17.1046 4 16 4H15V3C15 2.44772 14.5523 2 14 2C13.4477 2 13 2.44772 13 3V4H7V3C7 2.44772 6.55228 2 6 2ZM6 7C5.44772 7 5 7.44772 5 8C5 8.55228 5.44772 9 6 9H14C14.5523 9 15 8.55228 15 8C15 7.44772 14.5523 7 14 7H6Z"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        stroke="#fff"
         fill={color}
       />
     </svg>,
   ];
+  const history = useHistory();
+  const logOut = () => {
+    localStorage.clear();
+    history.push("/");
+  };
 
   return (
     <>
       <div className="brand">
-        <img src={logo} alt="" />
-        <span>Muse Dashboard</span>
+        <img src={logo} alt="" style={{ maxWidth: "100%", height: "auto" }} />
       </div>
       <hr />
       <Menu theme="light" mode="inline">
@@ -182,90 +142,75 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="2">
-          <NavLink to="/tables">
+          <NavLink to="/activities">
             <span
               className="icon"
               style={{
-                background: page === "tables" ? color : "",
+                background: page === "activities" ? color : "",
               }}
             >
               {tables}
             </span>
-            <span className="label">Tables</span>
+            <span className="label">Activities</span>
           </NavLink>
-        </Menu.Item>
+        </Menu.Item>{" "}
         <Menu.Item key="3">
-          <NavLink to="/billing">
+          <NavLink to="/user">
             <span
               className="icon"
               style={{
-                background: page === "billing" ? color : "",
-              }}
-            >
-              {billing}
-            </span>
-            <span className="label">Billing</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="4">
-          <NavLink to="/rtl">
-            <span
-              className="icon"
-              style={{
-                background: page === "rtl" ? color : "",
-              }}
-            >
-              {rtl}
-            </span>
-            <span className="label">RTL</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item className="menu-item-header" key="5">
-          Account Pages
-        </Menu.Item>
-        <Menu.Item key="6">
-          <NavLink to="/profile">
-            <span
-              className="icon"
-              style={{
-                background: page === "profile" ? color : "",
+                background: page === "users" ? color : "",
               }}
             >
               {profile}
             </span>
-            <span className="label">Profile</span>
+            <span className="label">Users</span>
+          </NavLink>
+        </Menu.Item>{" "}
+        <Menu.Item key="4">
+          <NavLink to="/category">
+            <span
+              className="icon"
+              style={{
+                background: page === "category" ? color : "",
+              }}
+            >
+              {category}
+            </span>
+            <span className="label">Categories</span>
+          </NavLink>
+        </Menu.Item>{" "}
+        <Menu.Item key="5">
+          <NavLink to="/contactUs">
+            <span
+              className="icon"
+              style={{
+                background: page === "contactUs" ? color : "",
+              }}
+            >
+              {profile}
+            </span>
+            <span className="label">Contatct US</span>
+          </NavLink>
+        </Menu.Item>{" "}
+        <Menu.Item key="6">
+          <NavLink to="/announcements">
+            <span
+              className="icon"
+              style={{
+                background: page === "announcements" ? color : "",
+              }}
+            >
+              {profile}
+            </span>
+            <span className="label">Announcements</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="7">
-          <NavLink to="/sign-in">
-            <span className="icon">{signin}</span>
-            <span className="label">Sign In</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="8">
-          <NavLink to="/sign-up">
-            <span className="icon">{signup}</span>
-            <span className="label">Sign Up</span>
-          </NavLink>
+        <Menu.Item className="menu-item-header" key="7" onClick={logOut}>
+          <span className="icon">{signin}</span>
+          <span className="label">LogOut</span>
         </Menu.Item>
       </Menu>
-      <div className="aside-footer">
-        <div
-          className="footer-box"
-          style={{
-            background: color,
-          }}
-        >
-          <span className="icon" style={{ color }}>
-            {dashboard}
-          </span>
-          <h6>Need Help?</h6>
-          <p>Please check our docs</p>
-          <Button type="primary" className="ant-btn-sm ant-btn-block">
-            DOCUMENTATION
-          </Button>
-        </div>
-      </div>
     </>
   );
 }
