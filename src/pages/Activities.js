@@ -6,7 +6,7 @@ import face3 from "../assets/images/face-3.jpg";
 import face4 from "../assets/images/face-4.jpg";
 import face5 from "../assets/images/face-5.jpeg";
 import face6 from "../assets/images/face-6.jpeg";
-
+// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const { Title } = Typography;
 
 function Activities() {
@@ -262,6 +262,8 @@ function Activities() {
     },
   ];
 
+  // const history = useHistory();
+
   const [tableParams, setTableParams] = useState({
     pagination: {
       current: 1,
@@ -285,11 +287,11 @@ function Activities() {
   // Function to apply filters
   const applyFilters = (data, filters) => {
     let filteredData = data;
-    if (filters.title) {
+    if (filters.name) {
       filteredData = filteredData.filter((item) =>
-        item.title.props.children[1].props.children[0].props.children
+        item.name.props.children[1].props.children[0].props.children
           .toLowerCase()
-          .includes(filters.title[0].toLowerCase())
+          .includes(filters.name[0].toLowerCase())
       );
     }
     if (filters.category) {
@@ -311,33 +313,34 @@ function Activities() {
     (tableParams.pagination.current - 1) * tableParams.pagination.pageSize,
     tableParams.pagination.current * tableParams.pagination.pageSize
   );
+
   return (
-    <div classtitle="tabled">
+    <div className="tabled">
       <Row gutter={[24, 0]}>
-        <Col xs={24} sm={24} md={12} lg={12} xl={8}>
+        <Col xs="24" xl={24}>
           <Card
             bordered={false}
-            classtitle="criclebox tablespace mb-24"
-            style={{ padding: 15 }}
+            className="criclebox tablespace mb-24"
+            style={{ padding: 20 }}
           >
             <div
               className="add-category"
               style={{
                 display: "flex",
+
                 justifyContent: "space-between",
               }}
             >
               <h2>Activities</h2>
             </div>
-
-            <div classtitle="table-responsive">
+            <div className="table-responsive " >
               <Table
                 columns={columns}
                 dataSource={paginatedData}
                 pagination={tableParams.pagination}
                 onChange={handleTableChange}
                 rowKey="key"
-                classtitle="ant-border-space"
+                className="ant-border-space"
               />
             </div>
           </Card>

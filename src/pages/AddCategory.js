@@ -5,17 +5,12 @@ const AddCategory = () => (
   <div className="addCategory">
     <Row gutter={[24, 0]} style={{ height: "80vh" }}>
       <Col xs="24" xl={24}>
-        <Card
-          bordered={false}
-          className="criclebox tablespace mb-24"
-          style={{ height: "80vh" }}
-        >
+        <Card bordered={false} className="criclebox tablespace mb-24">
           <div
             className="title"
             style={{
               display: "flex",
               padding: 20,
-              justifyContent: "space-between",
             }}
           >
             <h2>Add Category</h2>
@@ -53,16 +48,10 @@ const AddCategory = () => (
 
               <Form.Item
                 wrapperCol={{
-                  span: 4,
+                  span: 9,
                 }}
               >
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  style={{
-                    width: "100%",
-                  }}
-                >
+                <Button type="primary" htmlType="submit">
                   Add
                 </Button>
               </Form.Item>

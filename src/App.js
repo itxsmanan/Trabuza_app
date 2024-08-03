@@ -4,7 +4,7 @@ import Activities from "./pages/Activities.js";
 import SignIn from "./pages/SignIn";
 import User from "./pages/User";
 import ViewUser from "./pages/ViewUser.js";
-import Category from "./pages/Catgory.js";
+import Category from "./pages/Category.js";
 import AddCategory from "./pages/AddCategory.js";
 import ContactUs from "./pages/ContactUs.js";
 import Announcements from "./pages/Announcements.js";

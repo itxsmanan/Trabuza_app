@@ -1,80 +1,80 @@
 import React, { useState } from "react";
-import { Button, Card, Col, Row, Table, Typography } from "antd";
+import { Row, Col, Card, Table, Typography, Button } from "antd";
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-
 const { Title } = Typography;
-const columns = [
-  {
-    title: "Title",
-    dataIndex: "title",
 
-    width: "20%",
-  },
-  {
-    title: "Created at",
-    dataIndex: "createdAt",
-  },
-];
+function Category() {
+  const columns = [
+    {
+      title: "Title",
+      dataIndex: "title",
 
-const data = [
-  {
-    key: "1",
-    title: (
-      <div>
-        <Title level={5}>Hiking</Title>
-      </div>
-    ),
-    createdAt: <p>2023-01-15</p>,
-  },
-  {
-    key: "2",
-    title: (
-      <div>
-        <Title level={5}>Swimming</Title>
-      </div>
-    ),
-    createdAt: <p>2023-02-20</p>,
-  },
-  {
-    key: "3",
-    title: (
-      <div>
-        <Title level={5}>Cycling</Title>
-      </div>
-    ),
-    createdAt: <p>2023-03-10</p>,
-  },
-  {
-    key: "4",
-    title: (
-      <div>
-        <Title level={5}>Running</Title>
-      </div>
-    ),
-    createdAt: <p>2023-04-05</p>,
-  },
-  {
-    key: "5",
-    title: (
-      <div>
-        <Title level={5}>Yoga</Title>
-      </div>
-    ),
-    createdAt: <p>2023-05-12</p>,
-  },
-  {
-    key: "6",
-    title: (
-      <div>
-        <Title level={5}>Weightlifting</Title>
-      </div>
-    ),
-    createdAt: <p>2023-06-25</p>,
-  },
-];
+      width: "20%",
+    },
+    {
+      title: "Created at",
+      dataIndex: "createdAt",
+    },
+  ];
 
-const Users = () => {
+  const data = [
+    {
+      key: "1",
+      title: (
+        <div>
+          <Title level={5}>Hiking</Title>
+        </div>
+      ),
+      createdAt: <p>2023-01-15</p>,
+    },
+    {
+      key: "2",
+      title: (
+        <div>
+          <Title level={5}>Swimming</Title>
+        </div>
+      ),
+      createdAt: <p>2023-02-20</p>,
+    },
+    {
+      key: "3",
+      title: (
+        <div>
+          <Title level={5}>Cycling</Title>
+        </div>
+      ),
+      createdAt: <p>2023-03-10</p>,
+    },
+    {
+      key: "4",
+      title: (
+        <div>
+          <Title level={5}>Running</Title>
+        </div>
+      ),
+      createdAt: <p>2023-04-05</p>,
+    },
+    {
+      key: "5",
+      title: (
+        <div>
+          <Title level={5}>Yoga</Title>
+        </div>
+      ),
+      createdAt: <p>2023-05-12</p>,
+    },
+    {
+      key: "6",
+      title: (
+        <div>
+          <Title level={5}>Weightlifting</Title>
+        </div>
+      ),
+      createdAt: <p>2023-06-25</p>,
+    },
+  ];
+
   const [tableParams, setTableParams] = useState({
     pagination: {
       current: 1,
@@ -98,11 +98,11 @@ const Users = () => {
   // Function to apply filters
   const applyFilters = (data, filters) => {
     let filteredData = data;
-    if (filters.title) {
+    if (filters.name) {
       filteredData = filteredData.filter((item) =>
-        item.title.props.children[1].props.children[0].props.children
+        item.name.props.children[1].props.children[0].props.children
           .toLowerCase()
-          .includes(filters.title[0].toLowerCase())
+          .includes(filters.name[0].toLowerCase())
       );
     }
     if (filters.category) {
@@ -129,10 +129,11 @@ const Users = () => {
   const addCategory = () => {
     history.push("/addCategory");
   };
+
   return (
     <div className="tabled">
       <Row gutter={[24, 0]}>
-        <Col xs="24" xl={24} >
+        <Col xs="24" xl={24}>
           <Card
             bordered={false}
             className="criclebox tablespace mb-24"
@@ -142,6 +143,7 @@ const Users = () => {
               className="add-category"
               style={{
                 display: "flex",
+                justifyContent: "space-between",
                 padding: 20,
               }}
             >
@@ -156,8 +158,9 @@ const Users = () => {
                 columns={columns}
                 dataSource={paginatedData}
                 pagination={tableParams.pagination}
-                // loading={loading}
                 onChange={handleTableChange}
+                rowKey="key"
+                className="ant-border-space"
               />
             </div>
           </Card>
@@ -165,5 +168,6 @@ const Users = () => {
       </Row>
     </div>
   );
-};
-export default Users;
+}
+
+export default Category;

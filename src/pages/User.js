@@ -9,7 +9,7 @@ import face6 from "../assets/images/face-6.jpeg";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const { Title } = Typography;
 
-function Activities() {
+function Users() {
   const columns = [
     {
       title: "NAME",
@@ -229,14 +229,7 @@ function Activities() {
             className="criclebox tablespace mb-24"
             style={{ padding: 20 }}
           >
-            <div
-              className="add-category"
-              style={{
-                display: "flex",
-                padding: 20,
-                justifyContent: "space-between",
-              }}
-            >
+            <div className="add-category">
               <h2>Users</h2>
             </div>
             <div className="table-responsive">
@@ -256,4 +249,4 @@ function Activities() {
   );
 }
 
-export default Activities;
+export default Users;

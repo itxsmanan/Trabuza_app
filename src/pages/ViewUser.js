@@ -8,7 +8,7 @@ import face5 from "../assets/images/face-5.jpeg";
 import face6 from "../assets/images/face-6.jpeg";
 const { Title } = Typography;
 
-function Activities() {
+function ViewUser() {
   const columns = [
     {
       title: "TITLE",
@@ -350,4 +350,4 @@ function Activities() {
   );
 }
 
-export default Activities;
+export default ViewUser;

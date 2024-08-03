@@ -9,6 +9,7 @@ import {
   Typography,
   Form,
   Input,
+  message,
   // Switch,
 } from "antd";
 import signinbg from "../assets/images/logo2.png";
@@ -37,18 +38,27 @@ function SignIn() {
       history.push("/dashboard"); // Use navigate for redirection
     } else {
       // Set error messages
-      setError({
-        email: emailValue !== "admin@admin.com" ? "Invalid email" : "",
-        password: passwordValue !== "admin" ? "Invalid password" : "", // Adjusted value
-      });
+      errorMessage();
     }
   };
+
+  const errorMessage = () => {
+    messageApi.open({
+      type: "error",
+      content: "Invalid credentials",
+      style: {
+        marginTop: "40vh",
+      },
+    });
+  };
+  const [messageApi, contextHolder] = message.useMessage();
   return (
     <>
+      {contextHolder}
       <Layout className="layout-default layout-signin">
         <Content className="signin">
           <Row
-            gutter={[0, 28]}
+            gutter={[0, 20]}
             justify="space-around"
             style={{ height: "93vh" }}
             align="middle"
@@ -57,12 +67,17 @@ function SignIn() {
               className="sign-img"
               style={{ padding: 12 }}
               xs={{ span: 24 }}
-              lg={{ span: 9 }}
+              lg={{ span: 7 }}
               md={{ span: 12 }}
             >
               <img src={signinbg} alt="" />
             </Col>
-            <Col xs={{ span: 24 }} lg={{ span: 6 }} md={{ span: 12 }}>
+            <Col
+              xs={{ span: 24 }}
+              lg={{ span: 8 }}
+              md={{ span: 12 }}
+              style={{ padding: 12 }}
+            >
               <Title
                 className="mb-15"
                 style={{
